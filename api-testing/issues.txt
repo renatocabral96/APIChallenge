@@ -1,0 +1,6 @@
+Issues Found During API Testing
+
+1. Registration with missing email does not return appropriate error message.
+2. Login with incorrect credentials returns success but empty token.
+3. Accessing endpoint with invalid token returns incorrect status code.
+4. Updating non-existent employee returns generic error instead of specific 'not found' message.
