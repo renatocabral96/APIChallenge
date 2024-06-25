@@ -1,0 +1,647 @@
+{
+	"info": {
+		"_postman_id": "57e8daa8-c503-4dd1-9158-8304b9bf0bb0",
+		"name": "API Challenge",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "9571930"
+	},
+	"item": [
+		{
+			"name": "1st Requirement",
+			"item": [
+				{
+					"name": "Register User",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "email",
+									"value": "ola@user.com",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "passwords123",
+									"type": "text"
+								},
+								{
+									"key": "role",
+									"value": "admin",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://192.168.1.189:5000/api/register",
+							"protocol": "http",
+							"host": [
+								"192",
+								"168",
+								"1",
+								"189"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login User",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "passwords123",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "ola@user.com",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "\n\n",
+									"value": "",
+									"type": "text",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "http://192.168.1.189:5000/api/login",
+							"protocol": "http",
+							"host": [
+								"192",
+								"168",
+								"1",
+								"189"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"login"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "2nd Requirement",
+			"item": [
+				{
+					"name": "Login User Exists",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "passwords123",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "ola@user.com",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "\n\n",
+									"value": "",
+									"type": "text",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "http://192.168.1.189:5000/api/login",
+							"protocol": "http",
+							"host": [
+								"192",
+								"168",
+								"1",
+								"189"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login User Doesnt Exist",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "username",
+									"value": "nonexistentuser@user.com",
+									"type": "string"
+								},
+								{
+									"key": "password",
+									"value": "wrongpassword",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "\n\n",
+									"value": "",
+									"type": "text",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "http://192.168.1.189:5000/api/login",
+							"protocol": "http",
+							"host": [
+								"192",
+								"168",
+								"1",
+								"189"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Employees with Access Token",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "accessToken",
+								"value": "7b25de6fe771479682c6464de85e2f21",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "id",
+									"value": "1",
+									"type": "text",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "http://192.168.1.189:5000/api/employees/all",
+							"protocol": "http",
+							"host": [
+								"192",
+								"168",
+								"1",
+								"189"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"employees",
+								"all"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "3rd Requirement",
+			"item": [
+				{
+					"name": "Create Users",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "accessToken",
+								"value": "8204476a1b6f4a549442681ed22788e8",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "firstname",
+									"value": "abilio",
+									"type": "text"
+								},
+								{
+									"key": "lastname",
+									"value": "doe",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "abilio@email.com",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://192.168.1.189:5000/api/employees",
+							"protocol": "http",
+							"host": [
+								"192",
+								"168",
+								"1",
+								"189"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"employees"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Employees",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "accessToken",
+								"value": "d433e97d398341c783b96a893e6247c9",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "",
+									"value": "",
+									"type": "text",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "http://192.168.1.189:5000/api/employees/all",
+							"protocol": "http",
+							"host": [
+								"192",
+								"168",
+								"1",
+								"189"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"employees",
+								"all"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Employee",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "accessToken",
+								"value": "d433e97d398341c783b96a893e6247c9",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "id",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "firstname",
+									"value": "jojo",
+									"type": "text"
+								},
+								{
+									"key": "lastname",
+									"value": "nome",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "novomail@ola.com",
+									"type": "text"
+								},
+								{
+									"key": "firstname",
+									"value": "Joooony",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://192.168.1.189:5000/api/employees",
+							"protocol": "http",
+							"host": [
+								"192",
+								"168",
+								"1",
+								"189"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"employees"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "4th requirement",
+			"item": [
+				{
+					"name": "Get All Employees",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "accessToken",
+								"value": "6141431f8cef47839bc08954c1a616ca",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "",
+									"value": "",
+									"type": "text",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "http://192.168.1.189:5000/api/employees/all",
+							"protocol": "http",
+							"host": [
+								"192",
+								"168",
+								"1",
+								"189"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"employees",
+								"all"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Employee",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "accessToken",
+								"value": "6141431f8cef47839bc08954c1a616ca",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "id",
+									"value": "3",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://192.168.1.189:5000/api/employees",
+							"protocol": "http",
+							"host": [
+								"192",
+								"168",
+								"1",
+								"189"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"employees"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "5th requirement",
+			"item": [
+				{
+					"name": "Reg User Missing Fields",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "email",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "role",
+									"value": "admin",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://192.168.1.189:5000/api/register",
+							"protocol": "http",
+							"host": [
+								"192",
+								"168",
+								"1",
+								"189"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login Wrong User",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "username",
+									"value": "ola@ola.com",
+									"type": "string"
+								},
+								{
+									"key": "password",
+									"value": "passwords123",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "\n\n",
+									"value": "",
+									"type": "text",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "http://192.168.1.189:5000/api/login",
+							"protocol": "http",
+							"host": [
+								"192",
+								"168",
+								"1",
+								"189"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Employees with Access Token Copy",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "accessToken",
+								"value": "invalidtoken",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "id",
+									"value": "1",
+									"type": "text",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "http://192.168.1.189:5000/api/employees/all",
+							"protocol": "http",
+							"host": [
+								"192",
+								"168",
+								"1",
+								"189"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"employees",
+								"all"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
